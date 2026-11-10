@@ -2,7 +2,7 @@
 deployment:
   tasks:
     - export APPPATH=/home/miubtqkc/repositories/makeflix-producao
-    - /opt/alt/php84/usr/bin/php -d allow_url_fopen=On /home/miubtqkc/bin/composer install --no-dev --prefer-dist --optimize-autoloader --no-interaction
+    - /opt/alt/php84/usr/bin/php -d allow_url_fopen=On /home/miubtqkc/bin/composer install --working-dir=$APPPATH --no-dev --prefer-dist --optimize-autoloader --no-interaction
     - /home/miubtqkc/nodevenv/nodeapps/makeflix/20/bin/npm --prefix $APPPATH install --include=dev --package-lock=false --no-audit --no-fund
     - /home/miubtqkc/nodevenv/nodeapps/makeflix/20/bin/npm --prefix $APPPATH run build
     - /opt/alt/php84/usr/bin/php $APPPATH/artisan optimize:clear
